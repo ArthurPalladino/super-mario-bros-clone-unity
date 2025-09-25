@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MovementScript : MonoBehaviour
@@ -7,54 +8,77 @@ public class MovementScript : MonoBehaviour
     Renderer rd;
     Rigidbody2D rb;
 
-    bool Jumping = false;
+    Collider2D cd;
+
+    Camera mainCamera;
+
+    float moveInput;
+    bool JumpInput;
+
+    public bool alreadyJumping = false;
+
+
     void Start()
     {
         rd = gameObject.GetComponent<Renderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        cd = gameObject.GetComponent<Collider2D>();
+        mainCamera = Camera.main;
     }
     void Update()
+    {
+        HandleInput();
+    }
+    void FixedUpdate()
     {
         Move();
         Jump();
     }
+    void LateUpdate()
+    {
+        ClampPosition();
+    }
 
+    void HandleInput()
+    {
+        moveInput = Input.GetAxis("Horizontal");
+        if(Input.GetKeyDown(KeyCode.Space)) JumpInput=true;
+
+    }
+    void ClampPosition()
+    {
+        float halfWidth = mainCamera.orthographicSize * mainCamera.aspect;
+        float halfPlayerWidth = cd.bounds.extents.x; 
+
+        float minX = mainCamera.transform.position.x - halfWidth + halfPlayerWidth;
+        float maxX = mainCamera.transform.position.x + halfWidth - halfPlayerWidth;
+
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, minX, maxX);
+        transform.position = clampedPosition;
+    }
     void Move()
     {
-        var playerInput = Input.GetAxis("Horizontal");
-
-        if (playerInput != 0)
-        {
-            float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
-            //Mantém atualizando o spriteSize para futuras atualizações de sprites, como aumento de personagem ou Yoshi.
-            float spriteSize = rd.bounds.size.x / 2;
-            float minX = Camera.main.transform.position.x - halfWidth + spriteSize;
-            float maxX = Camera.main.transform.position.x + halfWidth - spriteSize;
-            float xMove = playerInput * moveSpeed * Time.deltaTime;
-            float clampedX = Mathf.Clamp(transform.position.x+xMove, minX, maxX);
-            transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
-            
-        }
-        else
-        {
-
-        }
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocityY);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        CheckIfCanJump(collision.gameObject.tag);
+    }
+    void CheckIfCanJump(string tag)
+    {
+        if (tag == "Ground")
         {
-            Jumping = false;
+            alreadyJumping = false;
         }
     }
-
     void Jump()
     {
-        var playerInput = Input.GetAxis("Vertical");
-        if ((playerInput > 0 || Input.GetKey(KeyCode.Space)) && !Jumping)
+        if (JumpInput && !alreadyJumping)
         {
-            Jumping = true;
-            rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+            alreadyJumping = true;
+            JumpInput = false;
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
 }
