@@ -5,6 +5,7 @@ public class MovementScript : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private Animator animator;
     Renderer rd;
     Rigidbody2D rb;
 
@@ -20,6 +21,7 @@ public class MovementScript : MonoBehaviour
 
     void Start()
     {
+        animator = gameObject.GetComponent<Animator>();
         rd = gameObject.GetComponent<Renderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         cd = gameObject.GetComponent<Collider2D>();
@@ -28,6 +30,16 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
         HandleInput();
+        int xMove =0;
+        if (moveInput > 0)
+        {
+            xMove = 1;
+        }
+        else if (moveInput < 0)
+        {
+            xMove = -1;
+        }
+        animator.SetInteger("xMove", xMove);
     }
     void FixedUpdate()
     {
@@ -42,7 +54,7 @@ public class MovementScript : MonoBehaviour
     void HandleInput()
     {
         moveInput = Input.GetAxis("Horizontal");
-        if(Input.GetKeyDown(KeyCode.Space)) JumpInput=true;
+        if (Input.GetKeyDown(KeyCode.Space)) JumpInput = true;
 
     }
     void ClampPosition()
@@ -59,6 +71,8 @@ public class MovementScript : MonoBehaviour
     }
     void Move()
     {
+        
+        Debug.Log((int)moveInput);
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocityY);
     }
     void OnCollisionEnter2D(Collision2D collision)
