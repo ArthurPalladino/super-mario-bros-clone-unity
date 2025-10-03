@@ -30,16 +30,7 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
         HandleInput();
-        int xMove =0;
-        if (moveInput > 0)
-        {
-            xMove = 1;
-        }
-        else if (moveInput < 0)
-        {
-            xMove = -1;
-        }
-        animator.SetInteger("xMove", xMove);
+        
     }
     void FixedUpdate()
     {
@@ -54,6 +45,16 @@ public class MovementScript : MonoBehaviour
     void HandleInput()
     {
         moveInput = Input.GetAxis("Horizontal");
+        int xMove =0;
+        if (moveInput > 0)
+        {
+            xMove = 1;
+        }
+        else if (moveInput < 0)
+        {
+            xMove = -1;
+        }
+        animator.SetInteger("xMove", xMove);
         if (Input.GetKeyDown(KeyCode.Space)) JumpInput = true;
 
     }
@@ -72,7 +73,6 @@ public class MovementScript : MonoBehaviour
     void Move()
     {
         
-        Debug.Log((int)moveInput);
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocityY);
     }
     void OnCollisionEnter2D(Collision2D collision)
