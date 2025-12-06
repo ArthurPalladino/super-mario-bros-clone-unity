@@ -18,7 +18,9 @@ public class MovementScript : MonoBehaviour
 
     public bool alreadyJumping = false;
 
+    bool canMovement=true;
 
+    bool CanMovement {set {value = canMovement;}}
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -29,8 +31,10 @@ public class MovementScript : MonoBehaviour
     }
     void Update()
     {
-        HandleInput();
-        
+        if (canMovement)
+        {
+            HandleInput();
+        }
     }
     void FixedUpdate()
     {
