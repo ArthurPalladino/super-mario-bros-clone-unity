@@ -18,12 +18,15 @@ public class MovementScript : MonoBehaviour
 
     public bool alreadyJumping = false;
 
-    bool canMovement=true;
+    public bool CanMovement=true;
 
-    bool CanMovement {set {value = canMovement;}}
+    AudioSource audioSource;
+    [SerializeField] AudioClip jumpSound;
+
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         rd = gameObject.GetComponent<Renderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         cd = gameObject.GetComponent<Collider2D>();
@@ -31,15 +34,18 @@ public class MovementScript : MonoBehaviour
     }
     void Update()
     {
-        if (canMovement)
+        if (CanMovement)
         {
             HandleInput();
         }
     }
     void FixedUpdate()
     {
-        Move();
-        Jump();
+        if (CanMovement)
+        {
+            Move();
+            Jump();
+        }
     }
     void LateUpdate()
     {
@@ -93,7 +99,8 @@ public class MovementScript : MonoBehaviour
     void Jump()
     {
         if (JumpInput && !alreadyJumping)
-        {
+        {   
+            audioSource.PlayOneShot(jumpSound);
             alreadyJumping = true;
             JumpInput = false;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
