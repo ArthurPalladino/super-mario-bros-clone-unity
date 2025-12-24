@@ -13,7 +13,7 @@ public class BoxCoin : MonoBehaviour
         //animator = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         StartCoroutine(AnimateAndSelfDestroy());
-        Object.FindFirstObjectByType<ScoreController>().addCoin();
+        ScoreManager.instance.addCoin();
     }
 
     IEnumerator AnimateAndSelfDestroy()

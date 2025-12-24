@@ -24,7 +24,7 @@ public class Box : MonoBehaviour
     void Start()
     {
         originalPos = gameObject.transform.position;
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -41,6 +41,8 @@ public class Box : MonoBehaviour
 
     void SelfActivate()
     {
+        animator.enabled = false;
+        spriteRenderer.sprite = brokenSprite;
         Vector3 instantiatePos = new Vector3(transform.position.x,transform.position.y+1);
         Instantiate(prefab,position:instantiatePos, Quaternion.identity);
         BreakAnimation();
@@ -49,7 +51,6 @@ public class Box : MonoBehaviour
     void BreakAnimation()
     {
         transform.DOMoveY(transform.position.y+jumpForce,breakAnimDuration).OnComplete(()=>{
-            spriteRenderer.sprite = brokenSprite;
             transform.DOMoveY(originalPos.y,breakAnimDuration);
             });
     }
