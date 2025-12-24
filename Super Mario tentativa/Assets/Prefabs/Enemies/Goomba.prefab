@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7018207724128263114}
   - component: {fileID: 8846224076548329767}
   - component: {fileID: 7707791024269482630}
-  - component: {fileID: 1069510950342484126}
   - component: {fileID: 2320701866293622375}
   - component: {fileID: 8157152897065582847}
+  - component: {fileID: 1956254479833573656}
   m_Layer: 0
   m_Name: Goomba
   m_TagString: Untagged
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.002175644, y: 0.07559665}
+  m_Offset: {x: 0.002175644, y: 0.07678552}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -166,10 +166,49 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.12371826, y: 0.007450834}
+  m_Size: {x: 0.12371826, y: 0.00982856}
   m_EdgeRadius: 0
---- !u!61 &1069510950342484126
-BoxCollider2D:
+--- !u!114 &2320701866293622375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231688224150507539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 629baa4bd02392e419b09873de0177c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Goomba
+  dirToWalk: 0
+  moveSpeed: 3
+  dyingSprite: {fileID: 876784968147787122, guid: dc7e12f4a4e40b64ebca5fb8bf4b267c, type: 3}
+  topCollider: {fileID: 7707791024269482630}
+  bottomCollider: {fileID: 1956254479833573656}
+--- !u!95 &8157152897065582847
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231688224150507539}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 888799c4fd27c0747aae5960f0d39b8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &1956254479833573656
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -199,57 +238,9 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00072842836, y: -0.009877948}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.18, y: 0.18}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.15449262, y: 0.1348941}
-  m_EdgeRadius: 0
---- !u!114 &2320701866293622375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231688224150507539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 629baa4bd02392e419b09873de0177c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Goomba
-  dirToWalk: 0
-  moveSpeed: 3
-  dyingSprite: {fileID: 876784968147787122, guid: dc7e12f4a4e40b64ebca5fb8bf4b267c, type: 3}
-  topCollider: {fileID: 7707791024269482630}
-  bottomCollider: {fileID: 1069510950342484126}
---- !u!95 &8157152897065582847
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231688224150507539}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 888799c4fd27c0747aae5960f0d39b8b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Offset: {x: -0.00039033266, y: -0.0065801246}
+  m_Size: {x: 0.15921934, y: 0.15921934}
+  m_Direction: 0

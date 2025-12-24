@@ -7,8 +7,7 @@ public class Goomba : MonoBehaviour
     [SerializeField] float moveSpeed;
 
     [SerializeField] Sprite dyingSprite;
-    [SerializeField] BoxCollider2D topCollider;
-    [SerializeField] BoxCollider2D bottomCollider;
+    BoxCollider2D topCollider;
 
     Animator animator;
     SpriteRenderer spriteRenderer;
@@ -17,7 +16,7 @@ public class Goomba : MonoBehaviour
     
     void Start()
     {
-        
+        topCollider = gameObject.GetComponent<BoxCollider2D>();
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         dirToWalk = Random.Range(0f, 1f) > 0.5f ? -1f : 1f; ;
@@ -32,6 +31,7 @@ public class Goomba : MonoBehaviour
             
             if (collision.otherCollider == topCollider)
             {
+                isAlive=false;
                 StartCoroutine(Die());
             }
             else
@@ -48,7 +48,6 @@ public class Goomba : MonoBehaviour
         rb.angularVelocity = 0;
         rb.linearVelocityX = 0;
         animator.enabled = false;
-        isAlive=false;
         moveSpeed = 0;
         spriteRenderer.sprite = dyingSprite;
         yield return new WaitForSeconds(1);
