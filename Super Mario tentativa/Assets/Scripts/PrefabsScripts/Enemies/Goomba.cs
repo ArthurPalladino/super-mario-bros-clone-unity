@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class Goomba : MonoBehaviour
 {
+
     [SerializeField] float dirToWalk;
     [SerializeField] float moveSpeed;
 
+    [SerializeField] float secondsUntilDisappear;
+
     [SerializeField] Sprite dyingSprite;
+
+    [SerializeField]
     BoxCollider2D topCollider;
+
 
     Animator animator;
     SpriteRenderer spriteRenderer;
@@ -29,7 +35,7 @@ public class Goomba : MonoBehaviour
         if (collision.gameObject.tag == "Player" && isAlive)
         {
             
-            if (collision.otherCollider == topCollider)
+            if (collision.otherCollider == topCollider && collision.collider is BoxCollider2D )
             {
                 isAlive=false;
                 StartCoroutine(Die());
@@ -50,7 +56,7 @@ public class Goomba : MonoBehaviour
         animator.enabled = false;
         moveSpeed = 0;
         spriteRenderer.sprite = dyingSprite;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(secondsUntilDisappear);
         Destroy(gameObject);
 
     }

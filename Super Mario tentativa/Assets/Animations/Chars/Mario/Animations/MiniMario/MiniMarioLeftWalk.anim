@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RightWalk
+  m_Name: MiniMarioLeftWalk
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1509298647979629103, guid: a95d2a12b061cb349879272013786aae, type: 3}
+      value: {fileID: 2231020222837286545, guid: a95d2a12b061cb349879272013786aae, type: 3}
     - time: 0.0625
-      value: {fileID: -3889344650559148656, guid: a95d2a12b061cb349879272013786aae, type: 3}
+      value: {fileID: 7609787605624061525, guid: a95d2a12b061cb349879272013786aae, type: 3}
     - time: 0.125
-      value: {fileID: 1062266681453288945, guid: a95d2a12b061cb349879272013786aae, type: 3}
+      value: {fileID: -8879491853263213150, guid: a95d2a12b061cb349879272013786aae, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1509298647979629103, guid: a95d2a12b061cb349879272013786aae, type: 3}
-    - {fileID: -3889344650559148656, guid: a95d2a12b061cb349879272013786aae, type: 3}
-    - {fileID: 1062266681453288945, guid: a95d2a12b061cb349879272013786aae, type: 3}
+    - {fileID: 2231020222837286545, guid: a95d2a12b061cb349879272013786aae, type: 3}
+    - {fileID: 7609787605624061525, guid: a95d2a12b061cb349879272013786aae, type: 3}
+    - {fileID: -8879491853263213150, guid: a95d2a12b061cb349879272013786aae, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

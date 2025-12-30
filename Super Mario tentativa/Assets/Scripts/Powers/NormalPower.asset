@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5cad6842a51434ebc588f6554f4c46, type: 3}
+  m_Name: NormalPower
+  m_EditorClassIdentifier: Assembly-CSharp::Power
+  animatorController: {fileID: 22100000, guid: b2115017ad006d5489ee7bf46218089f, type: 2}
+  idleSprite: {fileID: 8262985221905841761, guid: a95d2a12b061cb349879272013786aae, type: 3}
+  changeSound: {fileID: 0}
+  lifes: 1
+  powerAnimatorNumber: 0
+  previousPower: {fileID: 0}

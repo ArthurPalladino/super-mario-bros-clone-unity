@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MiniMario
+  m_Controller: {fileID: 9100000, guid: 09e672502f36a804d8170f24f606292d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9bb1d673d328e8f45a4984820ed3cad1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9bb1d673d328e8f45a4984820ed3cad1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 41bc5f00962bc3c4499692d1fadfde82, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 41bc5f00962bc3c4499692d1fadfde82, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6c305c7e16a2f5a4b907120572e1cd1b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6c305c7e16a2f5a4b907120572e1cd1b, type: 2}
