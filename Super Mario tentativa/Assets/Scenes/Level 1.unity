@@ -338,9 +338,9 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   animator: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 6255aac033619d248ad7f110f2589cf7, type: 3}
   alreadyJumping: 0
   CanMovement: 1
-  jumpSound: {fileID: 8300000, guid: 6255aac033619d248ad7f110f2589cf7, type: 3}
 --- !u!95 &309682241
 Animator:
   serializedVersion: 7
@@ -430,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 309682239}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.58, y: -3.9947, z: 0}
+  m_LocalPosition: {x: -53.76, y: -3.9947, z: 0}
   m_LocalScale: {x: 5.0966997, y: 5.0966997, z: 5.0966997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -480,6 +480,7 @@ MonoBehaviour:
   deathJumpForce: 5
   totalBlinkingTime: 1.5
   blinkingDuration: 0.1
+  curPower: {fileID: 11400000, guid: 6afd33165d8f1e14bbf335be6cf07305, type: 2}
 --- !u!82 &309682247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16849,6 +16850,10 @@ PrefabInstance:
     - target: {fileID: 698803170036426395, guid: 747a66668fa0a7a49bf89e2f0d02b448, type: 3}
       propertyPath: m_Name
       value: Goomba
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909239013766955383, guid: 747a66668fa0a7a49bf89e2f0d02b448, type: 3}
+      propertyPath: moveSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8773033456121248608, guid: 747a66668fa0a7a49bf89e2f0d02b448, type: 3}
       propertyPath: m_LocalPosition.x

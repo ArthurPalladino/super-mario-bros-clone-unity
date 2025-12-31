@@ -6,6 +6,7 @@ public class MovementScript : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Animator animator;
+    [SerializeField] AudioClip jumpSound;
     Renderer rd;
     Rigidbody2D rb;
 
@@ -21,7 +22,7 @@ public class MovementScript : MonoBehaviour
     public bool CanMovement=true;
 
     AudioSource audioSource;
-    [SerializeField] AudioClip jumpSound;
+    
 
     void Start()
     {
@@ -55,14 +56,16 @@ public class MovementScript : MonoBehaviour
     void HandleInput()
     {
         moveInput = Input.GetAxis("Horizontal");
-        int xMove =0;
+        int xMove = 0;
         if (moveInput > 0)
         {
+            transform.localRotation = Quaternion.Euler(0,180,0);
             xMove = 1;
         }
         else if (moveInput < 0)
         {
-            xMove = -1;
+            transform.localRotation = Quaternion.Euler(0,0,0);
+            xMove = 1;
         }
         animator.SetInteger("xMove", xMove);
         if (Input.GetKeyDown(KeyCode.Space)) JumpInput = true;
