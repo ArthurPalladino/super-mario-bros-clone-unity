@@ -25,10 +25,9 @@ public class PlayerDeath : MonoBehaviour
     int curLife = 1;
 
     bool canTakeDamage = true;
+    [SerializeField] Power curPower;
 
-    
-
-    Power curPower;
+    public Power CurPower{get {return curPower;}}
     void Start()
     {
         allColliders = gameObject.GetComponents<Collider2D>();

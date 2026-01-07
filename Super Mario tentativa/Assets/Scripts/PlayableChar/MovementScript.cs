@@ -97,6 +97,7 @@ public class MovementScript : MonoBehaviour
         if (tag == "Ground")
         {
             alreadyJumping = false;
+            animator.SetBool("isJumping", false);
         }
     }
     void Jump()
@@ -107,6 +108,7 @@ public class MovementScript : MonoBehaviour
             alreadyJumping = true;
             JumpInput = false;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            animator.SetBool("isJumping", true);
         }
     }
 }

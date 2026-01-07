@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: MushroomMario
   m_Controller: {fileID: 9100000, guid: 09e672502f36a804d8170f24f606292d, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 6c305c7e16a2f5a4b907120572e1cd1b, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 3a543e15d788e504c9e66bf189e4a548, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 41bc5f00962bc3c4499692d1fadfde82, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 29c14bc28940f564b909ca8f4cf03b4f, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 9bb1d673d328e8f45a4984820ed3cad1, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 07adfd3b30f3b9041a3b056724729081, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b100ef094243459478aa7d10af088c74, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff9a1f7691ddb6d4d8432c4b3a0f3ca6, type: 2}
